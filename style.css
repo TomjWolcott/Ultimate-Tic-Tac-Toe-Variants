@@ -1,0 +1,225 @@
+body {
+	overflow: hidden;
+}
+
+#definePopup {
+	z-index: 50; 
+	pointer-events: none; 
+	transform: translate(0, 0);
+	border: 0;
+	padding: 10px 20px;
+	background: #f5f5f5;
+	box-shadow: 0 0 #0000;
+	opacity: 0.95;
+}
+
+.popup {
+	z-index: 2;
+	position: absolute;
+	display: none;
+	flex-direction: column;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: 2px solid #ddd;
+	padding: 20px 40px;
+	align-items: center;
+	background: #eee;
+	box-shadow: 5px 5px #aaa;
+}
+
+.popup span {
+	margin-bottom: 20px;
+}
+
+#optionsMenu {
+	width: 460px;
+}
+
+#optionsScroll {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-height: 500px;
+	width: 550px;
+	overflow-y: scroll;
+}
+
+#howToMenu {
+	width: 500px;
+}
+
+#3x3, #u3x3, #uu3x3 {
+	width: 300px;
+}
+
+.header {
+	font-size: 20px;
+}
+
+.exArea {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+  overflow-y: scroll;
+	overflow-x: hidden;
+  max-height: 600px;
+	align-items: center;
+	width: 500px;
+}
+
+#howToMenu p {
+	word-wrap: break-word;
+	overflow-wrap: normal;
+	white-space: normal;
+	text-align: center;
+	width: 450px;
+}
+
+#name {
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+#loadsList {
+	display: flex;
+	flex-direction: column;
+	margin: 0 0 20px 0;
+	padding: 0;
+	text-align: center;
+	width: 500px;
+	max-height: 250px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.loadSlot {
+	margin: 0;
+	padding: 10px 20px;
+	width: 460px;
+	border-bottom: 1px dashed black;
+	background: #eee;
+	cursor: pointer;
+	user-select: none;
+}
+
+.loadSlot:hover {
+	filter: brightness(0.9);
+}
+
+#optionsBar {
+	display: inline-block;
+	word-wrap: break-word;
+	transform: translate(-8px, -8px);
+	margin: 0 0 20px 0;
+	padding: 20px 40px;
+	background: #eee;
+	width: 100%;
+}
+
+.sameLine {
+	display: inline-block;
+	white-space: nowrap;
+	margin-right: 40px;
+}
+
+input, select, button {
+	padding: 5px 10px 7px 8px;
+	width: 50px;
+	text-align: center;
+}
+
+button {
+	margin: 0 5px;
+	width: fit-content;
+}
+
+.aiSelect {
+	display: block;
+	margin: 0 12px 10px 12px;
+	border: 0;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.aiSelect:hover {
+	background: #ddd;
+}
+
+.btnArea {
+	flex-direction: column;
+}
+
+.exLines {
+	display: inline-block;
+	margin-right: 10px;
+	width: 60px;
+	vertical-align: middle;
+	border: 0;
+}
+
+#turnIndicator {
+	position: absolute;
+	left: 50px;
+	border: 6px solid black;
+	width: calc(100% - 200px);
+}
+
+.giantBoard {
+	position: relative;
+	transform-origin: top center;
+	display: table;
+	margin: auto;
+}
+
+.cover {
+	position: absolute;
+	outline-width: 2px;
+	outline-style: solid;
+	outline-color: #0000;
+	/* box-shadow: 4px 4px black; */
+}
+
+.disabled {
+	/* transform: rotate(10deg); */
+	filter: brightness(0.9);
+	pointer-events: none;
+	opacity: 1;
+	cursor: default;
+}
+
+div {
+	display: inline-block;
+	margin: 3px;
+	padding: 3px;
+	background: #00000000;
+	white-space: nowrap;
+	vertical-align: top;
+	outline-style: solid;
+	outline-width: 3px;
+	outline-color: #0000;
+}
+
+.cell {
+	transform: translate(-2px, -2px);
+	margin: 1px;
+	border: 0;
+	width: 40px;
+	height: 40px;
+	vertical-align: top;
+	background: #ddd;
+	box-shadow: 4px 4px #888;
+	cursor: pointer;
+}
+
+.cell:hover {
+	transform: translate(1px, 1px);
+	box-shadow: 1px 1px #555;
+}
+
+.cell:focus {
+	outline: 0;
+	transform: translate(-2px, -2px);
+	box-shadow: 3px 3px #555;
+}

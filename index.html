@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Ultimate Tic Tac Toe Variants</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body scrollLeft="0" scrollTop="0" onload="window.scrollTo(0, 0)">
+		<div class="popup" id="definePopup"></div>
+		<div class="popup" id="firstAI">
+			<span>The current player is a bot</span>
+			<button id="aiDelete">Click here to replace the bot</button><br>
+			<button id="aiGo">Click here to start</button>
+		</div>
+		<div class="popup" id="timerAlert">
+			<span>Click the button to start the timer</span>
+			<button id="timerStart">Start</button>
+		</div>
+		<div class="popup" id="optionsMenu">
+			<span style="margin-top: 20px; font-size: 24px">Options</span>
+			<div id="optionsScroll">
+				<span>
+			<!-- <button onclick="alert(window.localStorage.getItem('save1'));"></button> -->
+					<span class="define" id="dDim">Tic Tac Toe Dimesions:</span> <input class="dim" value="3"> x <input class="dim" value="3">
+				</span>
+				<span>
+					Number of Players: <select id="playerSelect"></select>
+				</span>
+				<span>
+					<span class="define" id="dMeta">Meta-level:</span> <input id="meta" value="2">
+				</span>
+				<span>
+					<span class="define" id="dSmall">Small side winning</span> = <button id="ssw">false</button>
+				</span>
+				<span>
+					<span class="define" id="dPre">The pre-game is</span> <input id="skipper" value="25"><span>% of the game</span>
+				</span>
+				<span>
+					<span class="define" id="dTimer">Set Turn Time:</span> 
+					<select id="timer" style="width: fit-content">
+						<option class="timerTimes" value="infinity">Infinite time</option>
+						<option class="timerTimes" value="minute">1 minute</option>
+						<option class="timerTimes" value="30s">30 seconds</option>
+						<option class="timerTimes" value="20s">20 seconds</option>
+						<option class="timerTimes" value="10s">10 seconds</option>
+						<option class="timerTimes" value="5s">5 seconds</option>
+						<option class="timerTimes" value="2s">2 seconds</option>
+					</select>
+				</span><br>
+				<span class="header">Set Bots: </span>
+				<span id="aiBtnArea"></span>
+				<span><hr class="exLines" style="border-top: 1px dashed black"> Human</span>
+				<span><hr class="exLines" style="border-top: 1px double black"> Dumb bot</span>
+				<span><hr class="exLines" style="border-top: 4px double black"> Normal bot</span>
+				<span><hr class="exLines" style="border-top: 7px double black"> Smart bot</span>
+			</div>
+			<button id="closeOptions">Close</button>
+		</div>
+		<div class="popup" id="howToMenu">
+			<span style="margin-top: 20px; font-size: 24px">How To Play</span>
+			<div class="exArea">
+				<p class="header">Tic Tac Toe</p>
+				<div id="3x3"></div>
+				<p>To win, a player has to get three in a row.  However, as everyone who has every played tic tac toe would know, this is very boring and most games end with ties.  However, we can make this more complex.</p>
+				<p></p>
+				<p class="header">Ultimate Tic Tac Toe</p>
+				<div id="u3x3"></div>
+				<p>To win a player has to win three tic tac toe boards in a row.  In addition, movement is restricted such that, wherever a player selects, the next player will have to use the corresponding tic tac toe board (see above).  <br><br>Another rule is that if a player is sent to a tic tac toe board that has been won (or tied), the next player in allowed to go anywhere within the ultimate tic tac toe board. And now, a question that one might ask would be: could we go further?</p>
+				<p class="header">Ultimate Ultimate Tic Tac Toe</p>
+				<div id="uu3x3"></div>
+				<p>Uhh, okay this is pretty complicated, let's go back.</p>
+				<p class="header">2x2 Tic Tac Toe</p>
+				<div id="2x2"></div>
+				<p>This is two by two tic tac toe; it works exactly like normal tic tac toe and is somehow even more boring. But what if, we again, go one level deeper?</p>
+				<p class="header">2x2 Ultimate Tic Tac Toe</p>
+				<div id="u2x2"></div>
+				<p>This is two by two ultimate tic tac toe and it works just like normal ultimate tic tac toe. We can continue on this path and arrive at...</p>
+				<p class="header">2x2 Ultimate Ultimate Tic Tac Toe</p>
+				<div id="uu2x2"></div>
+				<p>Finally, at least this is manageable, but it'd be nice to introduce some new lingo: <br><br><br>
+					<b>Meta-level: </b> Number of ultimates plus one<br><br>
+					<b>Tic Tac Toe Dimesions: </b> [Number of columns] x [Number of rows]<br><br>
+					<b>Cell: </b> The smallest square, the places that the player selects<br><br><br>
+					For this board where a player selects in a square, the next player will be restricted to the one size larger square.  For example: <br><br>
+					A player selects in the <i style="color: green">bottom right ultimate board</i>, the <i style="color: red">top left regular board</i>, and the <i style="color: blue">top right cell</i>. The next player will then be forced to go in the <i style="color: red">top left ultimate board</i>, and the <i style="color: blue">top right regular board</i>.<br>
+					You can see here that:<br><br>
+					<i style="color: red">top left regular board</i> &rarr; <i style="color: red">top left ultimate board</i><br><br>
+					<i style="color: blue">top right cell</i> &rarr; <i style="color: blue">top right regular board</i><br><br>
+					Along with this, if a player is sent to a won (or tied) board, then, they will be allowed to go anywhere in the next largest board.
+					</p>
+					<p class="header">And That's It!</p>
+					<p>You can change the dimension, and meta-level of board along with the number of players in options.  Have fun playing some complicated tic tac toe. &nbsp; : )</p>
+			</div>
+			<button id="closeHowTo">Close</button>
+		</div>
+		<div class="popup" id="loader" style="padding: 0 0 20px 0">
+			<span style="margin: 20px 0">Save slots: </span>
+				<div id="loadsList">None</div>
+				<span>
+					<button id="cancelL">Cancel</button>
+					<button id="clearSaves">Clear all saves</button>
+					<button id="info">Show extra information</button>
+				</span>
+				<span style="margin: 40px 0 20px 0">Or if you have a save code, you can load it here:</span>
+				<input id="saveString" style="margin-bottom: 20px; width: 300px;" placeholder="Copy and paste save data here">
+				<button id="load2">Load</button>
+		</div>
+		<div class="popup" id="saver">
+			<span style="margin-bottom: 10px;">Enter a name for the file: </span>
+			<input id="name" placeholder="Enter a name for the save file" autocomplete="off">
+			<span>
+				<button id="save2">Save</button>
+				<button id="cancelS">Cancel</button>
+			</span>
+				<span style="margin: 40px 0 20px 0">You could also copy the save data for the current game here</span>
+				<input readonly="readonly" id="copyData" style="width: 300px; user-select: all;" placeholder="Save data for the current game will show up here">
+		</div>
+		<div id="optionsBar">
+			<span class="sameLine">
+				Presets: <select id="presets" style="width: fit-content;">
+					<option value="none" class="presetOptions">None</option>
+					<option value="ttt" class="presetOptions">Tic Tac Toe</option>
+					<option value="uttt" class="presetOptions">Ultimate Tic Tac Toe</option>
+					<option value="2x2uuuttt" class="presetOptions">2 x 2 Triple Ultimate</option>
+					<option value="2x2uuttt" class="presetOptions">2 x 2 Double Ultimate</option>
+					<option value="3p2x2uuuttt" class="presetOptions">3 Player 2 x 2 Triple Ultimate</option>
+				</select>
+			</span>
+			<span class="sameLine">
+				<button id="options">Options</button>
+				<button id="howTo">How To Play</button>
+			</span>
+			<span class="sameLine">
+				<button id="save">Save</button>
+				<button id="load">Load</button>
+				<button id="clear" disabled>New Board</button>
+			</span>
+			<span class="sameLine">
+				<button id="skip"><span class="define" id="dSkip">Skip pre-game</span></button>
+				<button id="simGame"><span class="define" id="dSim">Evaluate Game</span></button>
+			</span><br><br>
+			<input readonly="readonly" id="simResult" style="width: 90%;">
+			<hr id="turnIndicator">
+		</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="common.js"></script>
+    <script src="objects.js"></script>
+    <script src="loadPage.js"></script>
+    <script src="eventListiners.js"></script>
+  </body>
+</html>
